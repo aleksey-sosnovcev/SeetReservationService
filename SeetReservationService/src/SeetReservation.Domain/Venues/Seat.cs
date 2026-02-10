@@ -1,0 +1,33 @@
+﻿using CSharpFunctionalExtensions;
+using Shared;
+
+namespace SeetReservation.Domain.Venues
+{
+    public class Seat
+    {
+        private Seat(Guid id, int rowNumber, int seatNumber)
+        {
+            Id = id;
+            RowNumber = rowNumber;
+            SeatNumber = seatNumber;
+        }
+        public Guid Id { get; }
+        public int RowNumber { get; private set; }
+        public int SeatNumber { get; private set; }
+
+        public static Result<Seat, Error> Create(int rowNumber, int seatNumber)
+        {
+            if (rowNumber <= 0)
+            {
+                return Error.Validation("seat.rowNumber", "Row number must be greater than zero");
+            }
+
+            if (seatNumber <= 0)
+            {
+                return Error.Validation("seat.seatNumber", "Seat number must be greater than zero");
+            }
+
+            return new Seat(Guid.NewGuid(), rowNumber, seatNumber);
+        }
+    }
+}
