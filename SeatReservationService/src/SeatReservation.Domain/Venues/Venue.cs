@@ -3,6 +3,9 @@ using Shared;
 
 namespace SeetReservation.Domain.Venues
 {
+
+    public record VenueId(Guid Value);
+
     /// <summary>
     /// Представляет доменную сущность "Площадка" (Venue) в системе бронирования
     /// Является агрегатом, управляющим конфигурацией мест и лимитами вместимости
@@ -11,7 +14,9 @@ namespace SeetReservation.Domain.Venues
     {
         private List<Seat> _seats;
 
-        public Venue(Guid id, string name, int maxSeatsCount, IEnumerable<Seat> seats)
+        //EF Core
+        private Venue() { }
+        public Venue(VenueId id, VenueName name, int maxSeatsCount, IEnumerable<Seat> seats)
         {
             Id = id;
             Name = name;
@@ -19,8 +24,8 @@ namespace SeetReservation.Domain.Venues
             _seats = seats.ToList();
         }
 
-        public Guid Id { get; }
-        public string Name { get; private set; }
+        public VenueId Id { get; }
+        public VenueName Name { get; private set; }
         public int SeatsLimit { get; private set; }
         public int SeatsCount => _seats.Count;
         public IReadOnlyList<Seat> Seats => _seats;

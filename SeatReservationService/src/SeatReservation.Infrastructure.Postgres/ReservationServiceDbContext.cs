@@ -19,7 +19,9 @@ namespace SeetReservation.Infrastructure.Postgres
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ReservationServiceDbContext).Assembly);
+
+         
         }
 
         public DbSet<Venue> Venues => Set<Venue>();
