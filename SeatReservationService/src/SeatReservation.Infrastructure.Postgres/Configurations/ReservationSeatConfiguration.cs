@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SeetReservation.Domain.Reservations;
+using SeatReservation.Domain.Reservations;
 
-namespace SeetReservation.Infrastructure.Postgres.Configurations
+namespace SeatReservation.Infrastructure.Postgres.Configurations
 {
     public class ReservationSeatConfiguration : IEntityTypeConfiguration<ReservationSeat>
     {

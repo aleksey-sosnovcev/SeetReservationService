@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SeetReservation.Domain
+namespace SeatReservation.Domain
 {
     public class User
     {

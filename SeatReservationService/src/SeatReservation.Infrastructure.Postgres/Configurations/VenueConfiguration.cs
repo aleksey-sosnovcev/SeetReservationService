@@ -1,14 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SeetReservation.Domain;
-using SeetReservation.Domain.Venues;
+using SeatReservation.Domain;
+using SeatReservation.Domain.Venues;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SeetReservation.Infrastructure.Postgres.Configurations
+namespace SeatReservation.Infrastructure.Postgres.Configurations
 {
     public class VenueConfiguration : IEntityTypeConfiguration<Venue>
     {

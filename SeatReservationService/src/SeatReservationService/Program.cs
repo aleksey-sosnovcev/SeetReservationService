@@ -1,4 +1,4 @@
-using SeetReservation.Infrastructure.Postgres;
+using SeatReservation.Infrastructure.Postgres;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<ReservationServiceDbContext>(_ => new ReservationServiceDbContext(builder.Configuration.GetConnectionString("ReservationServiceDb")!));
+builder.Services.AddScoped<ReservationServiceDbContext>(_ => 
+new ReservationServiceDbContext(builder.Configuration.GetConnectionString("ReservationServiceDb")!));
 
 var app = builder.Build();
 

@@ -1,4 +1,4 @@
-﻿namespace SeetReservation.Domain.Reservations
+﻿namespace SeatReservation.Domain.Reservations
 {
     public record ReservationSeatId(Guid Value);
 

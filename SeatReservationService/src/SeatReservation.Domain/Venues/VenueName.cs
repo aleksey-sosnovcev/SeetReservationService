@@ -1,7 +1,8 @@
 ﻿using CSharpFunctionalExtensions;
+using SeatReservation.Domain;
 using Shared;
 
-namespace SeetReservation.Domain.Venues
+namespace SeatReservation.Domain.Venues
 {
     public record VenueName
     {

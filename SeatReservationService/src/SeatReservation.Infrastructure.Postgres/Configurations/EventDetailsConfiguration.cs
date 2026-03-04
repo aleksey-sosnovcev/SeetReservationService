@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SeetReservation.Domain.Events;
+using SeatReservation.Domain.Events;
 
-namespace SeetReservation.Infrastructure.Postgres.Configurations
+namespace SeatReservation.Infrastructure.Postgres.Configurations
 {
     public class EventDetailsConfiguration : IEntityTypeConfiguration<EventDetails>
     {

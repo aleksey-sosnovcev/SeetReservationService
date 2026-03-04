@@ -1,7 +1,7 @@
 ﻿using CSharpFunctionalExtensions;
-using SeetReservation.Domain.Events;
+using SeatReservation.Domain.Events;
 
-namespace SeetReservation.Domain.Reservations
+namespace SeatReservation.Domain.Reservations
 {
     public record ReservationId(Guid Value);
     /// <summary>

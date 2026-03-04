@@ -1,4 +1,4 @@
-﻿namespace SeetReservation.Domain.Events
+﻿namespace SeatReservation.Domain.Events
 {
     public record EventId(Guid Value);
     /// <summary>

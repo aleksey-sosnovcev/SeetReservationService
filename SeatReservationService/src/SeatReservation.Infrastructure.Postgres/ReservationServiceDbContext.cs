@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SeetReservation.Domain.Venues;
+using SeatReservation.Domain.Venues;
 
-namespace SeetReservation.Infrastructure.Postgres
+namespace SeatReservation.Infrastructure.Postgres
 {
     public class ReservationServiceDbContext : DbContext
     {

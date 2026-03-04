@@ -1,7 +1,7 @@
 ﻿using CSharpFunctionalExtensions;
 using Shared;
 
-namespace SeetReservation.Domain.Venues
+namespace SeatReservation.Domain.Venues
 {
 
     public record VenueId(Guid Value);

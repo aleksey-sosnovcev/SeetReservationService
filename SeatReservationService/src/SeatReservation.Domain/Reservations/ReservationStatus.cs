@@ -1,4 +1,4 @@
-﻿namespace SeetReservation.Domain.Reservations
+﻿namespace SeatReservation.Domain.Reservations
 {
     /// <summary>
     /// Определяет возможные состояния бронирования в системе

@@ -1,4 +1,4 @@
-﻿namespace SeetReservation.Domain.Events
+﻿namespace SeatReservation.Domain.Events
 {
     /// <summary>
     /// Представляет дополнительную информацию о событии (детали события)
