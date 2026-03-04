@@ -1,12 +1,16 @@
-﻿namespace SeetReservation.Domain.Reservations
+﻿namespace SeatReservation.Domain.Reservations
 {
+    public record ReservationSeatId(Guid Value);
+
     /// <summary>
     /// Представляет сущность "Забронированное место" (Reservation Seat) в системе
     /// Является связующей сущностью между бронированием и конкретным местом
     /// </summary>
     public class ReservationSeat
     {
-        public ReservationSeat(Guid id, Reservation reservation, Guid seatId)
+        //EF Core
+        private ReservationSeat() { }
+        public ReservationSeat(ReservationSeatId id, Reservation reservation, Guid seatId)
         {
             Id = id;
             Reservation = reservation;
@@ -14,7 +18,7 @@
             ReservedAt = DateTime.UtcNow;
         }
 
-        public Guid Id { get; }
+        public ReservationSeatId Id { get; }
 
         /// <summary>
         /// Навигационное свойство для доступа к родительскому бронированию

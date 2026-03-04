@@ -1,12 +1,15 @@
-﻿namespace SeetReservation.Domain.Events
+﻿namespace SeatReservation.Domain.Events
 {
+    public record EventId(Guid Value);
     /// <summary>
     /// Представляет доменную сущность "Событие" (Event) в системе бронирования
     /// Содержит основную информацию о мероприятии и является агрегатом в контексте DDD
     /// </summary>
     public class Event
     {
-        public Event(Guid id, Guid venueId, string name, DateTime eventDate, EventDetails details)
+        //EF Core
+        private Event() { }
+        public Event(EventId id, Guid venueId, string name, DateTime eventDate, EventDetails details)
         {
             Id = id;
             VenueId = venueId;
@@ -15,7 +18,7 @@
             Details = details;
         }
 
-        public Guid Id { get; }
+        public EventId Id { get; }
 
         /// <summary>
         /// Идентификатор площадки проведения (внешний ключ к агрегату Venue)

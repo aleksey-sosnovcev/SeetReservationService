@@ -1,7 +1,9 @@
 ﻿using CSharpFunctionalExtensions;
+using SeatReservation.Domain.Events;
 
-namespace SeetReservation.Domain.Reservations
+namespace SeatReservation.Domain.Reservations
 {
+    public record ReservationId(Guid Value);
     /// <summary>
     /// Представляет доменную сущность "Бронирование" (Reservation) в системе
     /// Является агрегатом, управляющим процессом временного удержания мест на событие
@@ -10,7 +12,9 @@ namespace SeetReservation.Domain.Reservations
     {
         private List<ReservationSeat> _reservedSeats;
 
-        public Reservation(Guid id, Guid eventId, Guid userId, IEnumerable<Guid> seatIds)
+        //EF Core
+        private Reservation() { }
+        public Reservation(ReservationId id, EventId eventId, Guid userId, IEnumerable<Guid> seatIds)
         {
             Id = id;
             EventId = eventId;
@@ -21,19 +25,19 @@ namespace SeetReservation.Domain.Reservations
             // Создаем коллекцию забронированных мест на основе идентификаторов, переданных пользователем
             // Каждая запись ReservationSeat фиксирует факт бронирования конкретного места в рамках данного бронирования
             var reservedSeats = seatIds
-                .Select(seatId => new ReservationSeat(Guid.NewGuid(), this, seatId))
+                .Select(seatId => new ReservationSeat(new ReservationSeatId(Guid.NewGuid()), this, seatId))
                 .ToList();
 
             _reservedSeats = reservedSeats;
         }
 
-        public Guid Id { get; }
+        public ReservationId Id { get; }
 
         /// <summary>
         /// Идентификатор события, на которое выполняется бронирование
         /// Связывает бронирование с конкретным мероприятием
         /// </summary>
-        public Guid EventId { get; private set; }
+        public EventId EventId { get; private set; }
         public Guid UserId { get; private set; }
         public ReservationStatus Status { get; private set; }
         public DateTime CreatedAt { get; }
