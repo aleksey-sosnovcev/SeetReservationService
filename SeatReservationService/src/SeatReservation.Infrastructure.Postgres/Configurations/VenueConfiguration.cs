@@ -41,11 +41,16 @@ namespace SeatReservation.Infrastructure.Postgres.Configurations
                 .HasMaxLength(LengthConstans.LENGTH500)
                 .HasColumnName("name");
             });
-            
+
+            builder
+                .Property(v => v.SeatsLimit)
+                .IsRequired()
+                .HasColumnName("seats_limit");
+
             builder
                 .HasMany(v => v.Seats)
-                .WithOne()
-                .HasForeignKey(s => s.VenueId)
+                .WithOne(s => s.Venue)
+                .HasForeignKey("venue_id")
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
 

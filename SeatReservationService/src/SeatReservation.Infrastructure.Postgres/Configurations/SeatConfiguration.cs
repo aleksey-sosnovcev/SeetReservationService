@@ -20,11 +20,6 @@ namespace SeatReservation.Infrastructure.Postgres.Configurations
                 .HasColumnName("id");
 
             builder
-                .Property(s => s.VenueId)
-                .HasConversion(s => s.Value, id => new VenueId(id))
-                .HasColumnName("venue_id");
-
-            builder
                 .Property(s => s.RowNumber)
                 .HasColumnName("row_number");
 
